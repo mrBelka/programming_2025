@@ -57,7 +57,6 @@ int main() {
     //std::cout << d6 << std::endl;
 
     const int NMax = 10;
-    NMax = 1;
     std::cout << NMax << std::endl;
 
 

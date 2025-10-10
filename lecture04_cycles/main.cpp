@@ -1,4 +1,7 @@
 #include <iostream>
+#include <Windows.h>
+#include <io.h>    // For _setmode and _O_BINARY
+#include <fcntl.h> // For _setmode and _O_BINARY
 
 int main() {
     
@@ -71,7 +74,7 @@ int main() {
     } while(x % 2 == 0);
     std::cout << "end" << std::endl;
     */
-
+    /*
     // Определение простоты числа
     // 121
     // 2 3 4 5 6 7 8 9 10 11 12 . . . 42
@@ -94,7 +97,15 @@ int main() {
         else {
             std::cout << "is not prime" << std::endl;
         }
-    }
+    }*/
 
+    _setmode(_fileno(stdin), _O_BINARY);
+    char ch;
+    std::cin.read(&ch, 1); // '1' == 49
+    std::cout << ch + 10 << std::endl;
+
+    short s;
+    std::cin >> s;
+    char c = s;
     return 0;
 }
