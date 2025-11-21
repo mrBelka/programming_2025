@@ -1,0 +1,21 @@
+0. Install Docker Desktop
+1. Run "docker build -t xtest ." in directory with Dockerfile
+2. Download and start Xming in Windows
+3. Run putty with port 2222
+use:
+forward x11
+display localhost:0
+
+4. Try in terminal 
+
+# Test basic X11
+xeyes &
+xclock &
+xterm &
+
+# Test system applications
+firefox &
+gedit &
+gnome-calculator &
+
+5. Run this "gcc main.c -lX11" to compile
