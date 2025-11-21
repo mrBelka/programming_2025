@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.15) # Проверка версии CMake.
+									 # Если версия установленой программы
+									 # старее указаной, произайдёт аварийный выход.
+
+set(PROJECT_NAME lecture09_memory) 			 # задать значение PROJECT_NAME		 
+project("${PROJECT_NAME}")           # установить имя проекта
+
+set(CMAKE_CXX_STANDARD 20)			 # устанавливаем 17 стандарт языка
+
+file(GLOB SOURCE_CPP "*.cpp")
+
+# Сказать программе, что должен быть исполняемый файл
+add_executable("${PROJECT_NAME}" "${SOURCE_CPP}")
