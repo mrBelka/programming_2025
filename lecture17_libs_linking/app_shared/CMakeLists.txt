@@ -2,11 +2,12 @@ cmake_minimum_required(VERSION 3.15) # Проверка версии CMake.
 									 # Если версия установленой программы
 									 # старее указаной, произайдёт аварийный выход.
 
-set(PROJECT_NAME lecture01_basics) 			 # задать значение PROJECT_NAME		 
+set(PROJECT_NAME app_shared) 			 # задать значение PROJECT_NAME		 
 project("${PROJECT_NAME}")           # установить имя проекта
-
 
 set(CMAKE_CXX_STANDARD 20)			 # устанавливаем 17 стандарт языка
 
 # Сказать программе, что должен быть исполняемый файл
-add_executable("${PROJECT_NAME}" main.cpp func.cpp func.hpp)
+add_executable("${PROJECT_NAME}" main.cpp)
+
+target_link_libraries("${PROJECT_NAME}" PRIVATE mylib_shared)
