@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.22)
+project(big_project)
+add_subdirectory(mylib)
+add_subdirectory(mylib_shared)
+add_subdirectory(app)
+add_subdirectory(app_shared)
+add_subdirectory(gui_app)
