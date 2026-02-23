@@ -1,4 +1,9 @@
 #include <iostream>
+#include "func.hpp"
+
+// void print(std::string s = __FILE__, size_t l = __LINE__) {
+//     std::cerr << "MSG " << s << " " << l << std::endl;
+// }
 
 // Показать про русский язык
 /*
@@ -8,6 +13,8 @@
 */
 
 int main() {
+
+    print();
 
     // целочисленные
     char c1; // 1 байт, 256 значение, -128..127
