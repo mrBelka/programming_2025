@@ -13,7 +13,7 @@ int main() {
         // Создаём и открываем acceptor
         asio::ip::tcp::acceptor acceptor(io_context, endpoint);
         
-        std::cout << "Server starter 12345" << std::endl;
+        std::cout << "Server starter on port 12345 ..." << std::endl;
         
         // Ожидаем подключения клиента
         asio::ip::tcp::socket socket(io_context);
@@ -21,7 +21,7 @@ int main() {
         
         std::cout << "Client connected!" << std::endl;
         
-        // Буфер для приёма данных
+        /*// Буфер для приёма данных
         char data[1024];
         
         // Читаем данные от клиента
@@ -39,10 +39,12 @@ int main() {
         std::string reply = "Hello from server!";
         asio::write(socket, asio::buffer(reply));
         
-        std::cout << "Answer sended" << std::endl;
+        std::cout << "Answer sended" << std::endl;*/
         
-    } catch (std::exception& e) {
-        std::cerr << "Ошибка: " << e.what() << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    } catch (...) {
+        std::cerr << "Unhandled exception" << std::endl;
     }
     
     return 0;

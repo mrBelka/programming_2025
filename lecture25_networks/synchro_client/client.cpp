@@ -41,8 +41,10 @@ int main() {
             std::cout << "Ошибка получения ответа: " << ec.message() << std::endl;
         }
         
-    } catch (std::exception& e) {
+    } catch (const std::exception& e) {
         std::cerr << "Ошибка: " << e.what() << std::endl;
+    } catch (...) {
+        std::cerr << "Unhandled exception!" << std::endl;
     }
     
     return 0;
