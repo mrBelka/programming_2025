@@ -1,0 +1,3 @@
+[submodule "lecture26_networks_2/ext/asio"]
+	path = lecture26_networks_2/ext/asio
+	url = https://github.com/chriskohlhoff/asio.git
