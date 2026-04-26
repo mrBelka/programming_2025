@@ -3,6 +3,8 @@
 #include <asio.hpp>
 #include <iostream>
 
+#include <meteo/formats.hpp>
+
 int main() {
     try {
         asio::io_context io_context;
@@ -21,7 +23,7 @@ int main() {
         
         std::cout << "Client connected!" << std::endl;
         
-        /*// Буфер для приёма данных
+        // Буфер для приёма данных
         char data[1024];
         
         // Читаем данные от клиента
@@ -36,10 +38,28 @@ int main() {
         }
         
         // Отправляем ответ
+
+        meteo::Datetime dt;
+        dt.year = 2026;
+        dt.month = 4;
+
+        meteo::MeteoInfo info;
+        info.datetime.year = 2026;
+        info.datetime.month = 4;
+        info.temp = 12.34f;
+        info.humidity = 65.f;
+        info.wind_velocity = 1.5f;
+
+        char* ptr = reinterpret_cast<char*>(&info);
+        std::vector<char> vec(sizeof(meteo::MeteoInfo));
+        for (size_t i = 0; i < sizeof(meteo::MeteoInfo); ++i) {
+            vec[i] = *(ptr + i);
+        }
+
         std::string reply = "Hello from server!";
-        asio::write(socket, asio::buffer(reply));
+        asio::write(socket, asio::buffer(vec));
         
-        std::cout << "Answer sended" << std::endl;*/
+        std::cout << "Answer sended" << std::endl;
         
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;

@@ -3,6 +3,8 @@
 #include <asio.hpp>
 #include <iostream>
 
+#include <meteo/formats.hpp>
+
 int main() {
     try {
         asio::io_context io_context;
@@ -30,10 +32,14 @@ int main() {
         std::cout << "Sended: " << message << std::endl;
         
         // Получаем ответ
-        char reply[1024];
+        char reply[sizeof(meteo::MeteoInfo)];
         std::error_code ec;
         size_t length = socket.read_some(asio::buffer(reply), ec);
         
+        meteo::MeteoInfo info = *reinterpret_cast<meteo::MeteoInfo*>(reply);
+
+        std::cerr << info.datetime.year << std::endl;
+
         if (!ec) {
             std::cout << "Server reply: " 
                       << std::string(reply, length) << std::endl;
