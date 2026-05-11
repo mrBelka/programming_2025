@@ -1,0 +1,12 @@
+[
+  {
+    "ip": "127.0.0.1",
+    "port": 7000,
+    "description": "Baltiisk"
+  },
+  {
+    "ip": "127.0.0.1",
+    "port": 7001,
+    "description": "Gusev"
+  }
+]
